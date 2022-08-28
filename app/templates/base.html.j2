@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<!-- djlint:off H016,H030,H031 -->
+<html lang="{{ _('en') }}">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Icon -->
+    <link rel="apple-touch-icon"
+          sizes="180x180"
+          href='{{ url_for("static", filename="favicon/apple-touch-icon.png") }}'/>
+    <link rel="icon"
+          type="image/png"
+          sizes="32x32"
+          href='{{ url_for("static", filename="favicon/favicon-32x32.png") }}'/>
+    <link rel="icon"
+          type="image/png"
+          sizes="16x16"
+          href='{{ url_for("static", filename="favicon/favicon-16x16.png") }}'/>
+    <link rel="manifest"
+          href='{{ url_for("static", filename="favicon/site.webmanifest") }}'/>
+    <link rel="mask-icon"
+          href='{{ url_for("static", filename="favicon/safari-pinned-tab.svg") }}'
+          color="#5900ff"/>
+    <link rel="shortcut icon"
+          href='{{ url_for("static", filename="favicon/favicon.ico") }}'/>
+    <meta name="msapplication-TileColor" content="#5900ff" />
+    <meta name="msapplication-config"
+          content='{{ url_for("static", filename="favicon/browserconfig.xml") }}'/>
+    <meta name="theme-color" content="#5900ff" />
+    <!-- Devicon -->
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css"/>
+    <!-- Boxicons -->
+    <link href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css"
+          rel="stylesheet"/>
+    <!-- Remix Icon -->
+    <!-- <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet" /> -->
+    <!-- FontAwesome -->
+    <!-- <script src="https://kit.fontawesome.com/4e6add082b.js" crossorigin="anonymous"></script> -->
+    <!-- JS -->
+    <script type="module" src='{{ url_for("static", filename="js/main.js") }}'></script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-2L9Q08EQPC"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-2L9Q08EQPC");
+    </script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap"
+          rel="stylesheet"/>
+    <!-- CSS -->
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/normalize.css') }}"/>
+    <link rel="stylesheet"
+          href='{{ url_for("static", filename="css/main.css") }}'/>
+    {% block head %}
+    {% endblock head %}
+  </head>
+  <body class="preload">
+    <header>
+      <!-- prettier-ignore -->
+      {% set pages = [(_('About me'), 'home'),(_('Projects'), 'projects'),(_('Links'), 'links'),(_('Blog'), 'blog')] %}
+      {% set ns = namespace() %}
+      {% set ns.active = "" %}
+      <nav class="nav-container max-width-550px">
+        <div class="navbar">
+          <!-- prettier-ignore -->
+          {% autoescape false %}
+            {% for page in pages %}
+              {% set name = page[0] %}
+              {% set url = url_for(page[1]) %}
+              {% if request.path == url %}
+                {% set ns.active = {'url': url, 'name': page[0]} %}
+                <a id="active-nav-item" class="nav-item" href="{{ url }}">{{ name }}</a>
+              {% else %}
+                <a class="nav-item" href="{{ url }}">{{ name }}</a>
+                <!-- prettier-ignore -->
+              {% endif %}
+            {% endfor %}
+          {% endautoescape %}
+          <div id="lang-select" class="nav-item">
+            <span id="{{ 'active-lang' if g.lang == 'en' }}" class="lang">EN</span> /
+            <span id="{{ 'active-lang' if g.lang == 'es' }}" class="lang">ES</span>
+          </div>
+        </div>
+      </nav>
+      <div>
+        <a id="current-page" href="{{ ns.active.url }}">{{ ns.active.name }}</a>
+        <div id="nav-open">
+          {{ _('Menu')}}<i class="bx bx-menu"></i>
+        </div>
+        <div id="nav-close">
+          {{ _('Close')}}<i class="bx bx-x"></i>
+        </div>
+      </div>
+    </header>
+    <main class="max-width-1000px">
+      {% block main %}
+      {% endblock main %}
+    </main>
+    <footer>
+      © Ezequiel L. Dzioba
+    </footer>
+  </body>
+</html>
+<!-- djlint:on -->

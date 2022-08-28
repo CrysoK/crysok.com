@@ -1,0 +1,82 @@
+{% extends "base.html.j2" %}
+{% block head %}
+  <title>{{ _("Links") }}</title>
+  <meta name="description"
+        content="{{ _('Ways to contact me, social networks and other things') }}"/>
+  <link rel="stylesheet"
+        href="{{ url_for('static', filename='css/links.css') }}"/>
+{% endblock head %}
+{% block main %}
+  <h1>{{ _("Links") }}</h1>
+  <p>{{ _("Where to find me online.") }}</p>
+  <div class="links-content max-width-550px">
+    <h2>{{ _("Contact") }}</h2>
+    <div class="links">
+      <a class="button-1 i-btn"
+         href="mailto:contacto@crysok.com"
+         target="_blank"><i class="bx bx-envelope"></i>
+      <p>{{ _("Email") }}</p>
+    </a>
+    <a class="button-1 i-btn" href="https://t.me/crysok" target="_blank"><i class="bx bxl-telegram"></i>
+    <p>Telegram</p>
+  </a>
+  <a class="button-1 i-btn"
+     href="https://discordapp.com/users/469204451777839155"
+     target="_blank"><i class="bx bxl-discord-alt"></i>
+  <p>Discord</p>
+</a>
+</div>
+<h2>{{ _("Work") }}</h2>
+<div class="links">
+  <a class="button-1 i-btn"
+     href="https://github.com/CrysoK"
+     target="_blank"><i class="bx bxl-github"></i>
+  <p>GitHub</p>
+</a>
+<a class="button-1 i-btn"
+   href="https://www.linkedin.com/in/EzequielDzioba/"
+   target="_blank"><i class="bx bxl-linkedin-square"></i>
+<p>LinkedIn</p>
+</a>
+</div>
+<h2>{{ _("Social networks") }}</h2>
+<div class="links">
+  <a class="button-1 i-btn"
+     href="https://www.instagram.com/crysok_/"
+     target="_blank"><i class="bx bxl-instagram"></i>
+  <p>Instagram</p>
+</a>
+<a class="button-1 i-btn"
+   href="https://twitter.com/crysok_"
+   target="_blank"><i class="bx bxl-twitter"></i>
+<p>Twitter</p>
+</a>
+</div>
+<h2>{{ _("Music") }}</h2>
+<div class="links">
+  <a class="button-1 i-btn"
+     href="https://www.youtube.com/c/CrysoK"
+     target="_blank"><i class="bx bxl-youtube"></i>
+  <p>CrysøK</p>
+</a>
+<a class="button-1 i-btn"
+   href="https://www.youtube.com/channel/UCxSqLuhYfbdp-YIqiiKBeTA"
+   target="_blank"><i class="bx bxl-youtube"></i>
+<p>Prod. by CrysøK</p>
+</a>
+<a class="button-1 i-btn"
+   href="https://soundcloud.com/crysok"
+   target="_blank"><i class="bx bxl-soundcloud"></i>
+<p>SoundCloud</p>
+</a>
+</div>
+<h2>{{ _("Other content") }}</h2>
+<div class="links">
+  <a class="button-1 i-btn"
+     href="https://www.youtube.com/channel/UCi3z_KmWYUQViiZcyVzABgA"
+     target="_blank"><i class="bx bxl-youtube"></i>
+  <p>CrysøK TV</p>
+</a>
+</div>
+</div>
+{% endblock main %}

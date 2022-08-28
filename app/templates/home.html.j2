@@ -1,0 +1,44 @@
+{% extends "base.html.j2" %}
+{% block head %}
+  <title>CrysoK</title>
+  <meta name="description"
+        content="{{ _('Main website page with information about me') }}"/>
+  <link rel="stylesheet"
+        href="{{ url_for('static', filename='css/home.css') }}"/>
+{% endblock head %}
+{% block main %}
+  <div class="home-header">
+    <div class="pic overlay">
+      <img src="{{ url_for('static', filename='media/pic.jpg') }}" alt="" />
+    </div>
+    <div>
+      <h1>Ezequiel L. Dzioba</h1>
+      <p>{{ _("Systems Analysis Bachelor's student.") }}</p>
+      <p>{{ _('Learning Full-Stack Web Development.') }}</p>
+    </div>
+  </div>
+  <div class="home-content max-width-550px">
+    <p>
+      {{ _("Hi! Welcome to my place on the internet. I'm 21 years old and I'm a
+      Systems Analysis Bachelor's student. I'm also learning about full stack web
+      development.") }}
+    </p>
+    <p>
+      {{ _("What I like most about this world is designing systems that improve
+      what already exists in some aspect and make people's lives easier through
+      software.") }}
+    </p>
+    <p>
+      {{ _('I am currently focused on college, but I listen to part-time
+      proposals.') }}
+    </p>
+    <p>
+      {{ _('In the future I would like to learn about artificial intelligence and
+      delve into some of its fields.') }}
+    </p>
+  </div>
+  <div class="home-buttons max-width-550px">
+    <a class="button-1" href="{{ url_for('links') }}">{{ _('Contact me') }}</a>
+    <div class="button-1" onclick="alert(`{{ _('Soon') }}™`)">{{ _('CV') }}</div>
+  </div>
+{% endblock main %}

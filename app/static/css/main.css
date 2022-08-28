@@ -1,0 +1,363 @@
+/******************************************************************** GENERAL */
+
+.preload {
+  -webkit-transition: none !important;
+  -moz-transition: none !important;
+  -o-transition: none !important;
+  transition: none !important;
+}
+
+:root {
+  /* 5900ff */
+  --color-bg1: #222222;
+  --color-bg2: #1a1a1a;
+  --color-font1: #ffffff;
+  --color-font2: #909090;
+  --color-accent1: #9e6aff;
+  --color-accent2: #d6c1ff;
+  --color-accent1-a: #9e6aff40;
+  --color-no-overlay: #00000000;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+.max-width-1000px {
+  max-width: 1000px;
+}
+
+.max-width-550px {
+  max-width: 550px;
+}
+
+body {
+  background: var(--color-bg1);
+  display: flex;
+  flex-direction: column;
+  min-height: calc(var(--vh, 1vh) * 100);
+  min-width: 320px;
+  color: var(--color-font1);
+}
+
+/********************************************************************* HEADER */
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  transition: opacity 0.3s ease;
+  background: var(--color-bg1);
+}
+
+.nav-container {
+  margin: 0 auto;
+}
+
+.navbar {
+  padding: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 0 auto;
+  gap: 1rem;
+}
+
+header:hover {
+  opacity: 1;
+}
+
+.nav-hide {
+  opacity: 0;
+}
+
+.nav-item {
+  text-align: center;
+  color: var(--color-font1);
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: bold;
+  transition: color 0.3s ease;
+  cursor: pointer;
+}
+
+.nav-item:hover {
+  color: var(--color-accent1);
+}
+
+#active-nav-item {
+  border-bottom: 3px solid var(--color-accent1);
+}
+
+#nav-open,
+#nav-close {
+  display: none;
+}
+
+#current-page {
+  display: none;
+}
+
+#lang-select {
+  color: var(--color-font2);
+  -webkit-touch-callout: none; /* Safari */
+  -webkit-user-select: none; /* Chrome */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none;
+}
+
+#active-lang {
+  color: var(--color-font1);
+}
+
+.lang:hover {
+  color: var(--color-accent1);
+}
+
+/******************************************************************** CONTENT */
+
+main {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  margin: 0 auto;
+}
+
+h1 {
+  color: var(--color-font1);
+  text-align: center;
+  position: relative;
+}
+
+h1::after {
+  content: "";
+  background: var(--color-accent1);
+  position: absolute;
+  bottom: -0.5rem;
+  left: 10%;
+  width: 80%;
+  height: 3px;
+  border-radius: 6px;
+}
+
+p {
+  font-size: 1rem;
+  margin: 0.5rem;
+}
+
+a {
+  color: var(--color-accent2);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--color-accent1);
+}
+
+.overlay {
+  position: relative;
+}
+
+.overlay::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--color-accent1-a);
+  transition: background-color 0.3s ease;
+}
+
+.overlay:hover::after {
+  background-color: var(--color-no-overlay);
+}
+
+.button-1,
+.button-2 {
+  display: flex;
+  align-items: center;
+  padding: 1rem 1.5rem;
+  border-radius: 6px;
+  font-weight: bold;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.button-1 {
+  background-color: var(--color-accent1);
+  color: var(--color-bg1);
+  transition: all 0.3s ease;
+  transition-property: color, background-color;
+}
+.button-1:hover {
+  background-color: var(--color-accent2);
+  color: var(--color-bg1);
+}
+
+.button-2 {
+  border-width: 1px;
+  border-style: solid;
+  border-color: var(--color-accent1);
+  transition: all 0.3s ease;
+  transition-property: color, background-color, box-shadow;
+  color: var(--color-font1);
+}
+.button-2:hover {
+  box-shadow: 0 0 0.5rem var(--color-accent1);
+  color: var(--color-font1);
+}
+
+.i-btn {
+  justify-content: space-between;
+  padding: 0.5rem 1rem;
+}
+.i-btn i {
+  font-size: 2rem;
+  line-height: 0;
+}
+
+/****************************************************************** SCROLLBAR */
+
+::-webkit-scrollbar {
+  width: 5px;
+  background: rgba(5, 5, 5, 1);
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background: var(--color-accent1);
+  box-shadow: inset 0 0 20px var(--color-accent1);
+}
+::-webkit-scrollbar-track {
+  border-radius: 10px;
+}
+
+/********************************************************************* FOOTER */
+
+footer {
+  width: 100%;
+  padding: 1rem 0;
+  background-color: rgb(var(--main-header-background));
+  margin-top: auto;
+  color: #fff;
+  text-align: center;
+}
+
+footer a {
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+footer a:hover {
+  color: var(--color-accent1);
+}
+
+@media (max-width: 472px) {
+  /****************************************************************** GENERAL */
+
+  .button-1,
+  .button-2 {
+    font-size: 1.15rem;
+  }
+
+  /******************************************************************* HEADER */
+
+  .nav-container {
+    position: absolute;
+    width: 100%;
+    height: 0;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    transition: height 0.3s ease;
+    background-color: var(--color-bg2);
+    border-bottom: 3px solid var(--color-accent1);
+  }
+
+  .navbar {
+    margin: 0;
+    padding: 1.5rem;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+    background-color: unset;
+    font-size: 1.15rem;
+  }
+
+  .navbar * {
+    margin: 0;
+    padding: 0;
+  }
+
+  header > div {
+    padding: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    background-color: var(--color-bg1);
+  }
+
+  #current-page,
+  #nav-open,
+  #nav-close {
+    color: var(--color-font1);
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 1.15rem;
+    transition: color 0.3s ease;
+    cursor: pointer;
+  }
+
+  #current-page:hover,
+  #nav-open:hover,
+  #nav-close:hover {
+    color: var(--color-accent1);
+  }
+
+  #current-page {
+    display: initial;
+  }
+
+  #nav-open,
+  #nav-close {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    z-index: 10;
+  }
+
+  #nav-open i,
+  #nav-close i {
+    font-size: 2rem;
+    line-height: 0;
+  }
+
+  #nav-close {
+    display: none;
+  }
+
+  .nav-opened {
+    transition: height 0.3s ease;
+    height: var(--mh);
+    visibility: visible;
+  }
+
+  .nav-opened ~ div #nav-open {
+    display: none;
+  }
+
+  .nav-opened ~ div #nav-close {
+    display: flex;
+    visibility: visible;
+  }
+}

@@ -1,6 +1,18 @@
-.config
+# Environment variables
+.env
+.flaskenv
+
+# VS Code
+.vscode
+
+# Python
+__pycache__
 venv
+.venv
+
+# Replit
 .replit
 replit.nix
-poetry.lock
-pyproject.toml
+
+# Other
+ignore

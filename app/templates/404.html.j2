@@ -1,0 +1,15 @@
+{% extends "base.html.j2" %}
+{% block head %}
+  <title>404</title>
+  <meta name="description" content="{{ _('404 error page.') }}" />
+  <link rel="stylesheet"
+        href="{{ url_for('static', filename='css/404.css') }}"/>
+{% endblock head %}
+{% block main %}
+  <h1>404</h1>
+  <h2>{{ _('Page not found') }}</h2>
+  <div class="buttons">
+    <div class="button-1" onclick="history.back()">{{ _('Back') }}</div>
+    <a class="button-2" href="{{ url_for('home') }}">{{ _('Home') }}</a>
+  </div>
+{% endblock main %}
