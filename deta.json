@@ -10,7 +10,7 @@
     },
     {
       "key": "FLASK_SECRET",
-      "value": "main.py",
+      "value": "some random string",
       "required": true
     }
   ]
