@@ -7,12 +7,10 @@
 
 # Python
 __pycache__
-venv
 .venv
 
-# Replit
-.replit
-replit.nix
+# Deta
+.deta
 
 # Other
 ignore

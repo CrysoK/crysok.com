@@ -1,0 +1,14 @@
+## Default
+
+# .*
+# *.swp
+# node_modules
+# __pycache__
+# env
+# venv
+# .pyc
+# .rst
+
+## Custom
+
+ignore

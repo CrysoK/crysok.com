@@ -1,0 +1,17 @@
+{
+  "name": "crysok-site",
+  "description": "CrysoK's personal website",
+  "runtime": "python3.9",
+  "env": [
+    {
+      "key": "FLASK_APP",
+      "value": "main.py",
+      "required": true
+    },
+    {
+      "key": "FLASK_SECRET",
+      "value": "main.py",
+      "required": true
+    }
+  ]
+}
