@@ -34,6 +34,8 @@ def get_locale():
     lang = request.cookies.get("lang")
     if lang not in langs:
         lang = request.accept_languages.best_match(langs)
+        if lang is None:
+            lang = current_app.config["BABEL_DEFAULT_LOCALE"]
 
         @after_this_request
         def set_locale(response):
