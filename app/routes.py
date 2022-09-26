@@ -29,6 +29,10 @@ def register(app):
     def favicon():
         return send_file("static/favicon/favicon.ico")
 
+    @app.route("/sitemap.xml")
+    def sitemap():
+        return send_file("static/sitemap.xml")
+
     @app.errorhandler(404)
     def page_not_found(_):
         return render_template("404.html.j2"), 404
