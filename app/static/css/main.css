@@ -148,6 +148,7 @@ h1::after {
 
 p {
   font-size: 1rem;
+  line-height: 1.35rem;
   margin: 0.5rem;
 }
 
