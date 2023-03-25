@@ -1,14 +1,14 @@
-## Default
+# Default
 
-# .*
-# *.swp
-# node_modules
-# __pycache__
-# env
-# venv
-# .pyc
-# .rst
+.*
+*.swp
+node_modules
+__pycache__
+env
+venv
+.pyc
+.rst
 
-## Custom
+# Custom
 
 ignore
