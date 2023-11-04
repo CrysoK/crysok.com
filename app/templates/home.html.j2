@@ -39,6 +39,6 @@
   </div>
   <div class="home-buttons max-width-550px">
     <a class="button-1" href="{{ url_for('links') }}">{{ _('Contact me') }}</a>
-    <div class="button-1" onclick="alert(`{{ _('Soon') }}™`)">{{ _('CV') }}</div>
+    <a class="button-1" href="{{ url_for('static', filename='media/cv-gen-es-v1.1.0.pdf') }}" download>{{ _('CV') }}</a>
   </div>
 {% endblock main %}
