@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version:  crysok.com\n"
 "Report-Msgid-Bugs-To: ezequintela@gmail.com\n"
-"POT-Creation-Date: 2022-11-04 21:46-0300\n"
+"POT-Creation-Date: 2023-11-04 20:01-0300\n"
 "PO-Revision-Date: 2022-08-18 22:18-0300\n"
 "Last-Translator: Ezequiel Dzioba <ezequintela@gmail.com>\n"
 "Language: es\n"
@@ -68,7 +68,7 @@ msgstr "Cerrar"
 msgid "CrysoK's blog"
 msgstr "Blog de CrysoK"
 
-#: app/templates/blog.html.j2:11 app/templates/home.html.j2:42
+#: app/templates/blog.html.j2:11
 msgid "Soon"
 msgstr "Próximamente"
 
@@ -90,12 +90,12 @@ msgstr "Aprendiendo Desarrollo Web Full-Stack."
 
 #: app/templates/home.html.j2:22
 msgid ""
-"Hi! Welcome to my place on the internet. I'm 22 years old and I'm a\n"
+"Hi! Welcome to my place on the internet. I'm 23 years old and I'm a\n"
 "      Systems Analysis Bachelor's student. I'm also learning about full "
 "stack web\n"
 "      development."
 msgstr ""
-"¡Hola! Bienvenido a mi lugar en internet. Tengo 22 años y soy estudiante "
+"¡Hola! Bienvenido a mi lugar en internet. Tengo 23 años y soy estudiante "
 "de Licenciatura en Análisis de Sistemas. También estoy aprendiendo "
 "Desarrollo Web Full-Stack."
 
