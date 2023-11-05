@@ -1,5 +1,5 @@
-Flask==2.2.5
-Flask-Babel==2.0.0
-python-dotenv==0.20.0
-colorlog==6.6.0
+Flask==3.0.0
+Flask-Babel==4.0.0
+python-dotenv==1.0.0
+colorlog==6.7.0
 waitress==2.1.2

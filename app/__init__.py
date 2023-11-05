@@ -22,12 +22,11 @@ def create_app(config=Config):
     routes.register(app)
 
     log.info("Registering Babel")
-    babel.init_app(app)
+    babel.init_app(app, locale_selector=get_locale)
 
     return app
 
 
-@babel.localeselector
 def get_locale():
     log.debug("Getting locale")
     langs = current_app.config["LANGUAGES"]
