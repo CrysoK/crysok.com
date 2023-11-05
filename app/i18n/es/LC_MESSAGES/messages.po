@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version:  crysok.com\n"
 "Report-Msgid-Bugs-To: ezequintela@gmail.com\n"
-"POT-Creation-Date: 2023-11-04 21:08-0300\n"
+"POT-Creation-Date: 2023-11-04 21:15-0300\n"
 "PO-Revision-Date: 2022-08-18 22:18-0300\n"
 "Last-Translator: Ezequiel Dzioba <ezequintela@gmail.com>\n"
 "Language: es\n"
@@ -71,10 +71,6 @@ msgstr "Blog de CrysoK"
 #: app/templates/blog.html.j2:11
 msgid "Soon"
 msgstr "Próximamente"
-
-#: app/templates/cv.html.j2:6
-msgid "CrysoK's Curriculum Vitae / Resume"
-msgstr "Curriculum Vitae de CrysoK"
 
 #: app/templates/home.html.j2:5
 msgid "Main website page with information about me"
@@ -200,4 +196,7 @@ msgstr "Sitio web simple hecho para un curso de desarrollo web."
 
 #~ msgid "Social media"
 #~ msgstr "Redes sociales"
+
+#~ msgid "CrysoK's Curriculum Vitae / Resume"
+#~ msgstr "Curriculum Vitae de CrysoK"
 

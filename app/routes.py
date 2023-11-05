@@ -21,10 +21,6 @@ def register(app):
     def blog():
         return render_template("blog.html.j2")
 
-    @app.route("/cv")
-    def cv():
-        return render_template("cv.html.j2")
-
     @app.route("/favicon.ico")
     def favicon():
         return send_file("static/favicon/favicon.ico")
