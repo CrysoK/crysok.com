@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version:  crysok.com\n"
 "Report-Msgid-Bugs-To: ezequintela@gmail.com\n"
-"POT-Creation-Date: 2023-11-04 20:01-0300\n"
+"POT-Creation-Date: 2023-11-04 21:03-0300\n"
 "PO-Revision-Date: 2022-08-18 22:18-0300\n"
 "Last-Translator: Ezequiel Dzioba <ezequintela@gmail.com>\n"
 "Language: es\n"
@@ -162,7 +162,7 @@ msgstr "Redes sociales"
 msgid "Music"
 msgstr "Música"
 
-#: app/templates/links.html.j2:73
+#: app/templates/links.html.j2:68
 msgid "Other content"
 msgstr "Otros contenidos"
 
