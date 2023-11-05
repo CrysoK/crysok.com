@@ -7,3 +7,4 @@ micros:
     primary: true
     public_routes:
       - "/*"
+    dev: .venv/Scripts/flask run --port=$PORT
