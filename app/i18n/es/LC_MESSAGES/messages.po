@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version:  crysok.com\n"
 "Report-Msgid-Bugs-To: ezequintela@gmail.com\n"
-"POT-Creation-Date: 2023-11-05 03:51-0300\n"
+"POT-Creation-Date: 2023-12-04 19:27-0300\n"
 "PO-Revision-Date: 2022-08-18 22:18-0300\n"
 "Last-Translator: Ezequiel Dzioba <ezequintela@gmail.com>\n"
 "Language: es\n"
@@ -34,7 +34,7 @@ msgstr "Atrás"
 msgid "Home"
 msgstr "Inicio"
 
-#: app/templates/base.html.j2:3 app/templates/home.html.j2:37
+#: app/templates/base.html.j2:3 app/templates/home.html.j2:34
 msgid "en"
 msgstr "es"
 
@@ -72,23 +72,23 @@ msgstr "Blog de CrysoK"
 msgid "Soon"
 msgstr "Próximamente"
 
-#: app/templates/home.html.j2:5
+#: app/templates/home.html.j2:4
 msgid "Main website page with information about me"
 msgstr "Página principal del sitio web con información sobre mí"
 
-#: app/templates/home.html.j2:16
+#: app/templates/home.html.j2:14
 msgid "Systems Analysis Bachelor's student."
 msgstr "Estudiante de Licenciatura en Análisis de Sistemas."
 
-#: app/templates/home.html.j2:17
+#: app/templates/home.html.j2:15
 msgid "Learning Full-Stack Web Development."
 msgstr "Aprendiendo Desarrollo Web Full-Stack."
 
-#: app/templates/home.html.j2:22
+#: app/templates/home.html.j2:20
 msgid "Welcome to my space on the web!"
 msgstr "¡Bienvenido a mi espacio en la web!"
 
-#: app/templates/home.html.j2:25
+#: app/templates/home.html.j2:23
 msgid ""
 "I'm a 23-year-old student pursuing a Bachelor's Degree in Systems\n"
 "      Analysis. I'm also learning about full stack web development but "
@@ -99,7 +99,7 @@ msgstr ""
 "Sistemas. También estoy aprendiendo sobre desarrollo web full stack pero "
 "me interesan todas las áreas del software."
 
-#: app/templates/home.html.j2:30
+#: app/templates/home.html.j2:28
 msgid ""
 "Although I'm focused on university, I remain open to part-time\n"
 "      proposals. Let's connect."
@@ -107,13 +107,21 @@ msgstr ""
 "Aunque estoy centrado en la universidad, me mantengo abierto a propuestas"
 " de medio tiempo. Conectemos."
 
-#: app/templates/home.html.j2:35
+#: app/templates/home.html.j2:33
 msgid "Contact me"
 msgstr "Contáctame"
 
-#: app/templates/home.html.j2:38
+#: app/templates/home.html.j2:35
 msgid "CV"
 msgstr "CV"
+
+#: app/templates/home.html.j2:41 app/templates/home.html.j2:42
+msgid "Activity provided by Discord, via lanyard-profile-readme"
+msgstr "Actividad proporcionada por Discord, via lanyard-profile-readme"
+
+#: app/templates/home.html.j2:53
+msgid "No activity for now..."
+msgstr "Sin actividad por ahora..."
 
 #: app/templates/links.html.j2:5
 msgid "Ways to contact me, social networks and other things"
