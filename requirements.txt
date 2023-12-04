@@ -1,5 +1,5 @@
 Flask==3.0.0
 Flask-Babel==4.0.0
 python-dotenv==1.0.0
-colorlog==6.7.0
+colorlog==6.8.0
 waitress==2.1.2
