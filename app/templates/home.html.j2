@@ -58,8 +58,8 @@
       borderRadius,
       idleMessage,
       showDisplayName,
-      hideProfile,
-      "t=": new Date().getTime()
+      // hideProfile,
+      "t": new Date().getTime()
     }).toString()
 
     document.querySelector('#activity').src = `${api}${id}?${params}`
