@@ -25,6 +25,10 @@ def register(app):
     def favicon():
         return send_file("static/favicon/favicon.ico")
 
+    @app.route("/ads.txt")
+    def ads():
+        return send_file("static/ads.txt")
+
     @app.route("/sitemap.xml")
     def sitemap():
         return send_file("static/sitemap.xml")

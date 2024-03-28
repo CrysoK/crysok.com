@@ -31,8 +31,7 @@
 </div>
 <div class="home-buttons max-width-550px">
   <a class="button-1" href="{{ url_for('links') }}">{{ _('Contact me') }}</a>
-  <a class="button-1" href="{{ url_for('static', filename='media/cv-gen-'~_('en')~'-v2.0.0.pdf') }}"
-    download>{{ _('CV') }}</a>
+  <a class="button-1" onclick="alert('{{ _('''Soon''') }}™')" download>{{ _('CV') }}</a>
 </div>
 <p class="max-width-550px">
   <img id="activity" style="border: 2px solid var(--color-accent2); border-radius: 6px;"

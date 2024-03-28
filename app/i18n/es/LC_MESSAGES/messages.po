@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version:  crysok.com\n"
 "Report-Msgid-Bugs-To: ezequintela@gmail.com\n"
-"POT-Creation-Date: 2023-12-04 19:27-0300\n"
+"POT-Creation-Date: 2024-03-27 21:21-0300\n"
 "PO-Revision-Date: 2022-08-18 22:18-0300\n"
 "Last-Translator: Ezequiel Dzioba <ezequintela@gmail.com>\n"
 "Language: es\n"
@@ -34,7 +34,7 @@ msgstr "Atrás"
 msgid "Home"
 msgstr "Inicio"
 
-#: app/templates/base.html.j2:3 app/templates/home.html.j2:34
+#: app/templates/base.html.j2:3
 msgid "en"
 msgstr "es"
 
@@ -68,7 +68,7 @@ msgstr "Cerrar"
 msgid "CrysoK's blog"
 msgstr "Blog de CrysoK"
 
-#: app/templates/blog.html.j2:11
+#: app/templates/blog.html.j2:11 app/templates/home.html.j2:34
 msgid "Soon"
 msgstr "Próximamente"
 
@@ -115,11 +115,11 @@ msgstr "Contáctame"
 msgid "CV"
 msgstr "CV"
 
-#: app/templates/home.html.j2:41 app/templates/home.html.j2:42
+#: app/templates/home.html.j2:39 app/templates/home.html.j2:40
 msgid "Activity provided by Discord, via lanyard-profile-readme"
 msgstr "Actividad proporcionada por Discord, via lanyard-profile-readme"
 
-#: app/templates/home.html.j2:53
+#: app/templates/home.html.j2:51
 msgid "No activity for now..."
 msgstr "Sin actividad por ahora..."
 
