@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version:  crysok.com\n"
 "Report-Msgid-Bugs-To: ezequintela@gmail.com\n"
-"POT-Creation-Date: 2024-03-27 21:21-0300\n"
+"POT-Creation-Date: 2024-09-02 16:26-0300\n"
 "PO-Revision-Date: 2022-08-18 22:18-0300\n"
 "Last-Translator: Ezequiel Dzioba <ezequintela@gmail.com>\n"
 "Language: es\n"
@@ -111,15 +111,15 @@ msgstr ""
 msgid "Contact me"
 msgstr "Contáctame"
 
-#: app/templates/home.html.j2:35
+#: app/templates/home.html.j2:34
 msgid "CV"
 msgstr "CV"
 
-#: app/templates/home.html.j2:39 app/templates/home.html.j2:40
+#: app/templates/home.html.j2:38 app/templates/home.html.j2:39
 msgid "Activity provided by Discord, via lanyard-profile-readme"
 msgstr "Actividad proporcionada por Discord, via lanyard-profile-readme"
 
-#: app/templates/home.html.j2:51
+#: app/templates/home.html.j2:50
 msgid "No activity for now..."
 msgstr "Sin actividad por ahora..."
 
@@ -171,13 +171,9 @@ msgstr "Sitio web personal"
 msgid "This website."
 msgstr "Este sitio web."
 
-#: app/templates/projects.html.j2:46
-msgid "Finite-state machine simulation"
-msgstr "Simulación de automatas finitos"
-
 #: app/templates/projects.html.j2:47
-msgid "Project made for a university subject."
-msgstr "Proyecto hecho para una asignatura de la universidad."
+msgid "Programming language & interpreter."
+msgstr "Lenguaje de programación e intérprete."
 
 #: app/templates/projects.html.j2:66
 msgid "A Discord BOT using"
