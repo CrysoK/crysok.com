@@ -9,9 +9,5 @@
 __pycache__
 .venv
 
-# Deta
-.deta
-.space
-
 # Other
 ignore
