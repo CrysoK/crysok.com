@@ -1,5 +1,8 @@
-from flask import render_template, send_file
+from flask import render_template, send_file, abort, redirect, url_for
 from app.logger import log
+
+
+from app.blog import get_all_posts_with_cache
 
 
 def register(app):
@@ -19,7 +22,20 @@ def register(app):
 
     @app.route("/blog")
     def blog():
-        return render_template("blog.html.j2")
+        posts = get_all_posts_with_cache()
+        return render_template("blog.html.j2", posts=posts)
+
+    @app.route("/blog/<slug>")
+    def post_detail(slug):
+        posts = get_all_posts_with_cache()
+        post = next((p for p in posts if p["slug"] == slug), None)
+        if post is None:
+            abort(404)  # O redirigir a una página de error personalizada
+
+        # Pasar el número de la discusión para Giscus
+        giscus_term = str(post["number"])
+
+        return render_template("post.html.j2", post=post, giscus_term=giscus_term)
 
     @app.route("/favicon.ico")
     def favicon():

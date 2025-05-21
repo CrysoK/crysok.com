@@ -19,6 +19,15 @@ class Config:
         "comment_start_string": "<!--",
         "comment_end_string": "-->",
     }
+    # Blog
+    GITHUB_API_URL = "https://api.github.com/graphql"
+    GITHUB_API_TOKEN = os.getenv("GITHUB_API_TOKEN")
+    GITHUB_REPO_OWNER = os.getenv("GITHUB_REPO_OWNER")
+    GITHUB_REPO_NAME = os.getenv("GITHUB_REPO_NAME")
+    GITHUB_BLOG_CATEGORY = os.getenv("GITHUB_BLOG_CATEGORY")
+    GISCUS_REPO = f"{GITHUB_REPO_OWNER}/{GITHUB_REPO_NAME}"
+    GISCUS_REPO_ID = "REPO_ID_DE_GISCUS"
+    DOMAIN = os.getenv("DOMAIN")  # User-Agent
 
 
 log.debug("EOF")

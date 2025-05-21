@@ -1,0 +1,83 @@
+{% extends "base.html.j2" %}
+{% block head %}
+  <title>{{ _('Blog') }} - {{ post.title }}</title>
+  <!-- djlint:off T027 -->
+  {% if post.description %}
+    <meta name="description" content="{{ post.description }}">
+    {% endif %}
+  <!-- djlint:on -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/blog.css') }}">
+  <!-- Highlight.js CSS - Elije un tema que te guste -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/github-dark.min.css">
+  <!-- Highlight.js JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
+  <script>
+    // Inicializar highlight.js cuando el DOM esté listo
+    document.addEventListener('DOMContentLoaded', (event) => {
+      document.querySelectorAll('pre code').forEach((block) => {
+        hljs.highlightElement(block);
+      });
+    });
+  </script>
+  <script>
+    // Traducciones para los bloques de callout
+    window.calloutTranslations = {
+      note: "{{ _('Note') }}",
+      warning: "{{ _('Warning') }}",
+      important: "{{ _('Important') }}",
+      tip: "{{ _('Tip') }}",
+      caution: "{{ _('Caution') }}"
+    };
+  </script>
+  <script src="{{ url_for('static', filename='js/github-callouts.js') }}"></script>
+{% endblock head %}
+{% block main %}
+    <article class="blog-post">
+        <p class="post-meta">
+            {{ _('Published on:') }} {{ post.published_at.strftime('%d %B, %Y') }}
+            {% if post.updated_at and post.updated_at.date() != post.published_at.date() %}
+                ({{ _('Updated:') }} {{ post.updated_at.strftime('%d %B, %Y') }})
+            {% endif %}
+        </p>
+        <div class="post-content">
+            {{ post.body_html | safe }}
+        </div>
+
+        <div class="post-meta-bottom">
+            {% if post.tags %}
+                <p><strong>{{ _('Tags:') }}</strong>
+                {% for tag in post.tags %}
+                    {{ tag }}{% if not loop.last %}, {% endif %}
+                {% endfor %}
+                </p>
+            {% endif %}
+            {% if post.series %}
+                <p><strong>{{ _('Series:') }}</strong> {{ post.series }}</p>
+            {% endif %}
+            <p>
+                <a href="{{ post.url }}" target="_blank" rel="noopener noreferrer">{{ _('View on GitHub') }}</a>
+            </p>
+        </div>
+    </article>
+    <hr>
+    <div id="giscus-comments">
+        <!-- Giscus script se insertará aquí -->
+    </div>
+    <script src="https://giscus.app/client.js"
+            data-repo="{{ config.GISCUS_REPO }}"
+            data-repo-id="R_kgDOHoleGw"
+            data-category="{{ config.GITHUB_BLOG_CATEGORY }}"
+            data-category-id="DIC_kwDOHoleG84CqZYV"
+            data-mapping="number"
+            data-term="{{ giscus_term }}" {# Este es el número de la discusión #}
+            data-reactions-enabled="1"
+            data-emit-metadata="0"
+            data-input-position="top"
+            data-theme="preferred_color_scheme"
+            data-lang="{{ g.lang }}"
+            data-loading="lazy"
+            crossorigin="anonymous"
+            async>
+    </script>
+    <noscript>{{ _('Please enable JavaScript to view the') }} <a href="https://giscus.app">{{ _('comments powered by Giscus.') }}</a></noscript>
+{% endblock main %}

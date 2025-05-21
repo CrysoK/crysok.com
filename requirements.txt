@@ -3,3 +3,6 @@ Flask-Babel==4.0.0
 python-dotenv==1.0.0
 colorlog==6.8.0
 waitress==3.0.1
+requests
+Markdown
+python-frontmatter
