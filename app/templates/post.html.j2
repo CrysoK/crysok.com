@@ -7,9 +7,15 @@
     {% endif %}
   <!-- djlint:on -->
   <link rel="stylesheet" href="{{ url_for('static', filename='css/blog.css') }}">
-  <!-- Highlight.js CSS - Elije un tema que te guste -->
+  <script>
+  MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']]
+    }
+  };
+</script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/github-dark.min.css">
-  <!-- Highlight.js JS -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
   <script>
     // Inicializar highlight.js cuando el DOM esté listo
@@ -20,8 +26,7 @@
     });
   </script>
   <script>
-    // Traducciones para los bloques de callout
-    window.calloutTranslations = {
+    window.admonitionTranslations = { // Traducciones para los bloques de admonition
       note: "{{ _('Note') }}",
       warning: "{{ _('Warning') }}",
       important: "{{ _('Important') }}",
@@ -29,7 +34,7 @@
       caution: "{{ _('Caution') }}"
     };
   </script>
-  <script src="{{ url_for('static', filename='js/github-callouts.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/post.js') }}"></script>
 {% endblock head %}
 {% block main %}
     <article class="blog-post">

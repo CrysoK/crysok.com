@@ -331,10 +331,10 @@ hr {
 }
 
 /* GitHub-style callout blocks */
-.post-content .github-callout,
-.post-content blockquote[data-type] {
+.post-content .admonition {
   padding: 0.75rem 1rem;
   margin: 1rem 0;
+  border-left-style: solid;
   border-left-width: 0.25rem;
   border-radius: 0.375rem;
   background-color: var(--color-bg2);
@@ -343,73 +343,98 @@ hr {
 }
 
 /* Estilos para el título de callout */
-.post-content .callout-title {
+.admonition-title {
   font-weight: 600;
   display: block;
   margin-bottom: 0.5rem;
 }
 
 /* Colores para los diferentes tipos de callout */
-.post-content [data-type="note"] {
+.admonition.note {
   border-left-color: #2563eb;
   background-color: rgba(37, 99, 235, 0.1);
 }
 
-.post-content [data-type="note"] .callout-title {
+.admonition.note .admonition-title {
   color: #2563eb;
 }
 
-.post-content [data-type="warning"] {
+.admonition.warning {
   border-left-color: #f59e0b;
   background-color: rgba(245, 158, 11, 0.1);
 }
 
-.post-content [data-type="warning"] .callout-title {
+.admonition.warning .admonition-title {
   color: #f59e0b;
 }
 
-.post-content [data-type="important"] {
+.admonition.important {
   border-left-color: #dc2626;
   background-color: rgba(220, 38, 38, 0.1);
 }
 
-.post-content [data-type="important"] .callout-title {
+.admonition.important .admonition-title {
   color: #dc2626;
 }
 
-.post-content [data-type="tip"] {
+.admonition.tip {
   border-left-color: #10b981;
   background-color: rgba(16, 185, 129, 0.1);
 }
 
-.post-content [data-type="tip"] .callout-title {
+.admonition.tip .admonition-title {
   color: #10b981;
 }
 
-.post-content [data-type="caution"] {
+.admonition.caution {
   border-left-color: #f97316;
   background-color: rgba(249, 115, 22, 0.1);
 }
 
-.post-content [data-type="caution"] .callout-title {
+.admonition.caution .admonition-title {
   color: #f97316;
 }
 
 /* Estilos para párrafos y contenedor de múltiples callouts */
-.post-content .github-callout p,
-.post-content blockquote[data-type] p {
+.admonition p {
   margin: 0.5rem 0;
 }
 
-.post-content .github-callouts-container {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  margin: 1rem 0;
+/* Estilos para las listas de tareas (task lists) */
+.post-content .task-list-item {
+  list-style-type: none;
+  margin-left: -1.5em;
 }
 
-.post-content .github-callouts-container blockquote {
-  margin: 0;
+.post-content .task-list-item input[type="checkbox"] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  display: inline-block;
+  position: relative;
+  width: 1.2em;
+  height: 1.2em;
+  margin-right: 0.5em;
+  vertical-align: middle;
+  border: 2px solid var(--color-accent1);
+  border-radius: 4px;
+  background-color: var(--color-bg1);
+  transition: all 0.3s ease;
+}
+
+.post-content .task-list-item input[type="checkbox"]:checked {
+  background-color: var(--color-accent2);
+  border-color: var(--color-accent2);
+}
+
+.post-content .task-list-item input[type="checkbox"]:checked::after {
+  content: '\2714';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: var(--color-bg1);
+  font-size: 0.9rem;
 }
 
 /* Responsive adjustments */

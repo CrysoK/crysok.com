@@ -6,3 +6,6 @@ waitress==3.0.1
 requests
 Markdown
 python-frontmatter
+markdown-gfm-admonition
+pymdown-extensions
+

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version:  crysok.com\n"
 "Report-Msgid-Bugs-To: ezequintela@gmail.com\n"
-"POT-Creation-Date: 2025-05-21 05:17-0300\n"
+"POT-Creation-Date: 2025-05-21 18:16-0300\n"
 "PO-Revision-Date: 2022-08-18 22:18-0300\n"
 "Last-Translator: Ezequiel Dzioba <ezequintela@gmail.com>\n"
 "Language: es\n"
@@ -73,15 +73,15 @@ msgstr "Blog de CrysoK"
 msgid "Latest posts"
 msgstr "Últimas publicaciones"
 
-#: app/templates/blog.html.j2:19 app/templates/post.html.j2:37
+#: app/templates/blog.html.j2:19 app/templates/post.html.j2:42
 msgid "Published on:"
 msgstr "Publicado el:"
 
-#: app/templates/blog.html.j2:21 app/templates/post.html.j2:48
+#: app/templates/blog.html.j2:21 app/templates/post.html.j2:53
 msgid "Tags:"
 msgstr "Etiquetas:"
 
-#: app/templates/blog.html.j2:27 app/templates/post.html.j2:55
+#: app/templates/blog.html.j2:27 app/templates/post.html.j2:60
 msgid "Series:"
 msgstr "Series:"
 
@@ -180,39 +180,39 @@ msgstr "Música"
 msgid "Other content"
 msgstr "Otros contenidos"
 
-#: app/templates/post.html.j2:25
+#: app/templates/post.html.j2:30
 msgid "Note"
 msgstr "Nota"
 
-#: app/templates/post.html.j2:26
+#: app/templates/post.html.j2:31
 msgid "Warning"
 msgstr "Advertencia"
 
-#: app/templates/post.html.j2:27
+#: app/templates/post.html.j2:32
 msgid "Important"
 msgstr "Importante"
 
-#: app/templates/post.html.j2:28
+#: app/templates/post.html.j2:33
 msgid "Tip"
 msgstr "Consejo"
 
-#: app/templates/post.html.j2:29
+#: app/templates/post.html.j2:34
 msgid "Caution"
 msgstr "Precaución"
 
-#: app/templates/post.html.j2:39
+#: app/templates/post.html.j2:44
 msgid "Updated:"
 msgstr "Actualizado:"
 
-#: app/templates/post.html.j2:58
+#: app/templates/post.html.j2:63
 msgid "View on GitHub"
 msgstr "Ver en GitHub"
 
-#: app/templates/post.html.j2:82
+#: app/templates/post.html.j2:87
 msgid "Please enable JavaScript to view the"
 msgstr "Por favor, habilita JavaScript para ver los"
 
-#: app/templates/post.html.j2:82
+#: app/templates/post.html.j2:87
 msgid "comments powered by Giscus."
 msgstr "comentarios proporcionados por Giscus."
 

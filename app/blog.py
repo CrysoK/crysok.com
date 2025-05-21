@@ -3,6 +3,7 @@ import frontmatter
 from markdown import markdown
 from datetime import datetime
 from app.config import Config
+from pymdownx.emoji import to_alt
 
 
 SEARCH_POSTS_QUERY = """
@@ -106,7 +107,23 @@ def parse_post_data(discussion_node):
         "body_md": content_md,
         "body_html": markdown(
             content_md,
-            extensions=["fenced_code", "tables", "footnotes"],
+            extensions=[
+                "tables",
+                "fenced_code",  # ``` code blocks
+                "footnotes",
+                "attr_list",  # atributos html en markdown
+                "abbr",  # abreviaturas html
+                "sane_lists",  # better list parsing
+                "smarty",  # convierte algunos símbolos ascii a entidades html
+                "toc",  # asigna ids a títulos para crear una toc
+                "pymdownx.betterem",  # mejora de smartstrong
+                # "pymdownx.superfences",  # mejora fenced_code (pero rompe tables)
+                "pymdownx.emoji",  # emojis a partir de ids como :smile:
+                "pymdownx.tasklist",  # lista de tareas de GH
+                "pymdownx.magiclink",  # beter link generation
+                "gfm_admonition",  # "callouts" de GH
+            ],
+            extension_configs={"pymdownx.emoji": {"emoji_generator": to_alt}},
             tab_length=2,
         ),
         "description": description,
