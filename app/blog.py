@@ -75,6 +75,7 @@ def parse_post_data(discussion_node):
     )  # Usar título de frontmatter si existe
     slug = metadata.get("slug") or slugify(title)
     description = metadata.get("description", "")
+    tabs = metadata.get("tabs", 2)  # Get tabs from frontmatter or default to 2
 
     # Fechas
     published_str = metadata.get("published")
@@ -121,10 +122,14 @@ def parse_post_data(discussion_node):
                 "pymdownx.emoji",  # emojis a partir de ids como :smile:
                 "pymdownx.tasklist",  # lista de tareas de GH
                 "pymdownx.magiclink",  # beter link generation
+                "pymdownx.tilde",  # soporte para tachado (~~strikethrough~~)
                 "gfm_admonition",  # "callouts" de GH
             ],
-            extension_configs={"pymdownx.emoji": {"emoji_generator": to_alt}},
-            tab_length=2,
+            extension_configs={
+                "pymdownx.emoji": {"emoji_generator": to_alt},
+                "pymdownx.tilde": {"subscript": False}
+            },
+            tab_length=tabs,
         ),
         "description": description,
         "published_at": published_at,
