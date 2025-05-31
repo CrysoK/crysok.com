@@ -1,104 +1,91 @@
 {% extends "base.html.j2" %}
 {% block head %}
-  <title>{{ _('Projects') }}</title>
-  <meta name="description" content="{{ _('Projects I did or am doing') }}" />
-  <link rel="stylesheet"
-        href="{{ url_for('static', filename='css/projects.css')}}"/>
+<title>{{ _('Projects') }}</title>
+<meta name="description" content="{{ _('Projects I did or am doing') }}" />
+<link rel="stylesheet" href="{{ url_for('static', filename='css/projects.css')}}" />
 {% endblock head %}
 {% block main %}
-  <h1>{{ _('Projects') }}</h1>
-  <p>{{ _('Some of my projects.') }}</p>
-  <div class="cards">
-    <!-- Tarjeta -->
-    <div class="card">
-      <div class="img-container overlay">
-        <img src="{{ url_for('static', filename='media/crysok.com.png') }}" alt="" />
+<h1>{{ _('Projects') }}</h1>
+<p>{{ _('Some of my projects.') }}</p>
+<div class="cards">
+  <!-- Tarjeta -->
+  <div class="card">
+    <div class="img-container overlay">
+      <img src="{{ url_for('static', filename='media/crysok.com.png') }}" alt="" />
+    </div>
+    <div class="buttons">
+      <a href="https://crysok.com" target="_blank" class="button-1 i-btn"><i class="bx bx-link-external"></i></a>
+      <a href="https://github.com/CrysoK/crysok.com" target="_blank" class="button-1 i-btn"><i
+          class="bx bx-code-alt"></i></a>
+    </div>
+    <div class="card-content">
+      <div class="icons">
+        <i class="devicon-python-plain colored" title="Python"></i>
+        <i class="devicon-flask-original" title="Flask"></i>
+        <i class="devicon-html5-plain colored"></i>
+        <i class="devicon-css3-plain colored" title="CSS"></i>
+        <i class="devicon-javascript-plain colored" title="JavaScript"></i>
       </div>
+      <h3>{{ _("Personal website") }}</h3>
+      <p>{{ _("This website.") }}</p>
+    </div>
+  </div>
+  <div class="card">
+    <div class="img-container overlay">
+      <img src="{{ url_for('static', filename='media/aleph.png') }}" alt="" />
+    </div>
+    <div class="card-content">
+      <div class="icons">
+        <i class="devicon-c-plain colored" title="C"></i>
+      </div>
+      <h3>Aleph</h3>
+      <p>{{ _('Programming language & interpreter.') }}</p>
       <div class="buttons">
-      <a href="https://crysok.com" target="_blank" class="button-1 i-btn"><i class="bx bx-link-external"></i
-    ></a>
-  <a href="https://github.com/CrysoK/crysok.com"
-     target="_blank"
-     class="button-1 i-btn"><i class="bx bx-code-alt"></i
-></a>
-</div>
-<div class="card-content">
-  <div class="icons">
-    <i class="devicon-python-plain colored" title="Python"></i>
-    <i class="devicon-flask-original" title="Flask"></i>
-    <i class="devicon-html5-plain colored"></i>
-    <i class="devicon-css3-plain colored" title="CSS"></i>
-    <i class="devicon-javascript-plain colored" title="JavaScript"></i>
-  </div>
-  <h3>{{ _("Personal website") }}</h3>
-  <p>{{ _("This website.") }}</p>
-</div>
-</div>
-<div class="card">
-  <div class="img-container overlay">
-    <img src="{{ url_for('static', filename='media/aleph.png') }}"
-         alt=""/>
-  </div>
-  <div class="card-content">
-    <div class="icons">
-      <i class="devicon-c-plain colored" title="C"></i>
+        <a href="https://github.com/CrysoK/Aleph" target="_blank" class="button-1 i-btn"><i
+            class="bx bx-code-alt"></i></a>
+      </div>
     </div>
-    <h3>Aleph</h3>
-    <p>{{ _('Programming language & interpreter.') }}</p>
-    <div class="buttons">
-    <a href="https://github.com/CrysoK/Aleph"
-       target="_blank"
-       class="button-1 i-btn"><i class="bx bx-code-alt"></i
-  ></a>
-</div>
-</div>
-</div>
-<div class="card">
-  <div class="img-container overlay">
-    <img src="{{ url_for('static', filename='media/bot.png') }}" alt="" />
   </div>
-  <div class="card-content">
-    <div class="icons">
-      <i class="devicon-python-plain colored" title="Python"></i>
+  <div class="card">
+    <div class="img-container overlay">
+      <img src="{{ url_for('static', filename='media/bot.png') }}" alt="" />
     </div>
-    <h3>ExaBOT</h3>
-    <p>
-      {{ _("A Discord BOT using") }}
-    <a href="https://github.com/Pycord-Development/pycord" target="_blank">Pycord</a
-    >
-  </p>
-  <div class="buttons">
-  <a href="https://github.com/CrysoK/ExaBOT"
-     target="_blank"
-     class="button-1 i-btn"><i class="bx bx-code-alt"></i
-></a>
-</div>
-</div>
-</div>
-<div class="card">
-  <div class="img-container overlay">
-    <img src="{{ url_for('static', filename='media/squadenie.png') }}" alt="" />
+    <div class="card-content">
+      <div class="icons">
+        <i class="devicon-python-plain colored" title="Python"></i>
+      </div>
+      <h3>ExaBOT</h3>
+      <p>
+        {{ _("A Discord BOT using") }}
+        <a href="https://github.com/Pycord-Development/pycord" target="_blank">Pycord</a>
+      </p>
+      <div class="buttons">
+        <a href="https://github.com/CrysoK/ExaBOT" target="_blank" class="button-1 i-btn"><i
+            class="bx bx-code-alt"></i></a>
+      </div>
+    </div>
   </div>
-  <div class="card-content">
-    <div class="icons">
-      <i class="devicon-python-plain colored" title="Python"></i>
-      <i class="devicon-flask-original" title="Flask"></i>
-      <i class="devicon-html5-plain colored" title="HTML"></i>
-      <i class="devicon-css3-plain colored" title="CSS"></i>
-      <i class="devicon-javascript-plain colored" title="JavaScript"></i>
+  <div class="card">
+    <div class="img-container overlay">
+      <img src="{{ url_for('static', filename='media/squadenie.png') }}" alt="" />
     </div>
-    <h3>SQUAD[Ñ]</h3>
-    <p>{{ _('Simple website made for a web development course.') }}</p>
-    <div class="buttons">
-    <a href="https://squadñ.tk" target="_blank" class="button-1 i-btn"><i class="bx bx-link-external"></i
-  ></a>
-<a href="https://github.com/CrysoK/squadenie"
-   target="_blank"
-   class="button-1 i-btn"><i class="bx bx-code-alt"></i
-></a>
-</div>
-</div>
-</div>
+    <div class="card-content">
+      <div class="icons">
+        <i class="devicon-python-plain colored" title="Python"></i>
+        <i class="devicon-flask-original" title="Flask"></i>
+        <i class="devicon-html5-plain colored" title="HTML"></i>
+        <i class="devicon-css3-plain colored" title="CSS"></i>
+        <i class="devicon-javascript-plain colored" title="JavaScript"></i>
+      </div>
+      <h3>SQUAD[Ñ]</h3>
+      <p>{{ _('Simple website made for a web development course.') }}</p>
+      <div class="buttons">
+        <a href="https://squadñ.tk" target="_blank" class="button-1 i-btn"><i class="bx bx-link-external"></i></a>
+        <a href="https://github.com/CrysoK/squadenie" target="_blank" class="button-1 i-btn"><i
+            class="bx bx-code-alt"></i></a>
+      </div>
+    </div>
+  </div>
 </div>
 {% endblock main %}
 <!-- <div class="buttons">
