@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version:  crysok.com\n"
 "Report-Msgid-Bugs-To: ezequintela@gmail.com\n"
-"POT-Creation-Date: 2025-05-31 11:28-0300\n"
+"POT-Creation-Date: 2025-05-31 11:34-0300\n"
 "PO-Revision-Date: 2022-08-18 22:18-0300\n"
 "Last-Translator: Ezequiel Dzioba <ezequintela@gmail.com>\n"
 "Language: es\n"
@@ -224,39 +224,42 @@ msgstr "Proyectos que hice o que estoy haciendo"
 msgid "Some of my projects."
 msgstr "Algunos de mis proyectos."
 
-#: app/templates/projects.html.j2:29
-msgid "Personal website"
-msgstr "Sitio web personal"
-
-#: app/templates/projects.html.j2:30
-msgid "This website."
-msgstr "Este sitio web."
-
-#: app/templates/projects.html.j2:42
-msgid "Programming language & interpreter."
-msgstr "Lenguaje de programación e intérprete."
-
-#: app/templates/projects.html.j2:59
-msgid "A Discord BOT using"
-msgstr "Un BOT de Discord usando"
-
-#: app/templates/projects.html.j2:70
-msgid "Datitos project screenshot"
-msgstr "Captura de pantalla del proyecto Datitos"
-
-#: app/templates/projects.html.j2:73
+#: app/templates/projects.html.j2:17 app/templates/projects.html.j2:45
+#: app/templates/projects.html.j2:76 app/templates/projects.html.j2:107
 msgid "Visit"
 msgstr "Visita"
 
-#: app/templates/projects.html.j2:75
+#: app/templates/projects.html.j2:19 app/templates/projects.html.j2:47
+#: app/templates/projects.html.j2:48 app/templates/projects.html.j2:66
+#: app/templates/projects.html.j2:78 app/templates/projects.html.j2:109
 msgid "Code"
 msgstr "Código"
 
-#: app/templates/projects.html.j2:85
+#: app/templates/projects.html.j2:30
+msgid "Personal website"
+msgstr "Sitio web personal"
+
+#: app/templates/projects.html.j2:31
+msgid "This website."
+msgstr "Este sitio web."
+
+#: app/templates/projects.html.j2:43
+msgid "Programming language & interpreter."
+msgstr "Lenguaje de programación e intérprete."
+
+#: app/templates/projects.html.j2:62
+msgid "A Discord BOT using"
+msgstr "Un BOT de Discord usando"
+
+#: app/templates/projects.html.j2:73
+msgid "Datitos project screenshot"
+msgstr "Captura de pantalla del proyecto Datitos"
+
+#: app/templates/projects.html.j2:88
 msgid "Mobile data pack comparator."
 msgstr "Comparador de packs de datos móviles."
 
-#: app/templates/projects.html.j2:102
+#: app/templates/projects.html.j2:105
 msgid "Simple website made for a web development course."
 msgstr "Sitio web simple hecho para un curso de desarrollo web."
 
