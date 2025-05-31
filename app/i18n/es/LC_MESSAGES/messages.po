@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version:  crysok.com\n"
 "Report-Msgid-Bugs-To: ezequintela@gmail.com\n"
-"POT-Creation-Date: 2025-05-31 11:34-0300\n"
+"POT-Creation-Date: 2025-05-31 11:37-0300\n"
 "PO-Revision-Date: 2022-08-18 22:18-0300\n"
 "Last-Translator: Ezequiel Dzioba <ezequintela@gmail.com>\n"
 "Language: es\n"
@@ -227,7 +227,7 @@ msgstr "Algunos de mis proyectos."
 #: app/templates/projects.html.j2:17 app/templates/projects.html.j2:45
 #: app/templates/projects.html.j2:76 app/templates/projects.html.j2:107
 msgid "Visit"
-msgstr "Visita"
+msgstr "Visitar"
 
 #: app/templates/projects.html.j2:19 app/templates/projects.html.j2:47
 #: app/templates/projects.html.j2:48 app/templates/projects.html.j2:66
