@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version:  crysok.com\n"
 "Report-Msgid-Bugs-To: ezequintela@gmail.com\n"
-"POT-Creation-Date: 2025-05-31 11:37-0300\n"
+"POT-Creation-Date: 2025-05-31 11:50-0300\n"
 "PO-Revision-Date: 2022-08-18 22:18-0300\n"
 "Last-Translator: Ezequiel Dzioba <ezequintela@gmail.com>\n"
 "Language: es\n"
@@ -34,7 +34,7 @@ msgstr "Atrás"
 msgid "Home"
 msgstr "Inicio"
 
-#: app/templates/base.html.j2:3
+#: app/templates/base.html.j2:3 app/templates/home.html.j2:34
 msgid "en"
 msgstr "es"
 
@@ -132,19 +132,15 @@ msgstr ""
 msgid "Contact me"
 msgstr "Contáctame"
 
-#: app/templates/home.html.j2:34
-msgid "Soon"
-msgstr "Próximamente"
-
-#: app/templates/home.html.j2:34
+#: app/templates/home.html.j2:35
 msgid "CV"
 msgstr "CV"
 
-#: app/templates/home.html.j2:38 app/templates/home.html.j2:39
+#: app/templates/home.html.j2:39 app/templates/home.html.j2:40
 msgid "Activity provided by Discord, via lanyard-profile-readme"
 msgstr "Actividad proporcionada por Discord, via lanyard-profile-readme"
 
-#: app/templates/home.html.j2:50
+#: app/templates/home.html.j2:51
 msgid "No activity for now..."
 msgstr "Sin actividad por ahora..."
 
@@ -262,4 +258,7 @@ msgstr "Comparador de packs de datos móviles."
 #: app/templates/projects.html.j2:105
 msgid "Simple website made for a web development course."
 msgstr "Sitio web simple hecho para un curso de desarrollo web."
+
+#~ msgid "Soon"
+#~ msgstr "Próximamente"
 
