@@ -28,6 +28,7 @@ class Config:
     GISCUS_REPO = f"{GITHUB_REPO_OWNER}/{GITHUB_REPO_NAME}"
     GISCUS_REPO_ID = "REPO_ID_DE_GISCUS"
     DOMAIN = os.getenv("DOMAIN")  # User-Agent
+    DATE_OF_BIRTH = os.getenv("DATE_OF_BIRTH")
 
 
 log.debug("EOF")

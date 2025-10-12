@@ -1,8 +1,25 @@
-from flask import render_template, send_file, abort, redirect, url_for
+from datetime import date
+from flask import render_template, send_file, abort, current_app
 from app.logger import log
 
 
 from app.blog import get_all_posts_with_cache
+
+
+def calculate_age(born_str):
+    if not born_str:
+        raise ValueError("La variable de entorno DATE_OF_BIRTH no está configurada.")
+    try:
+        born = date.fromisoformat(born_str)
+        today = date.today()
+        age = (
+            today.year - born.year - ((today.month, today.day) < (born.month, born.day))
+        )
+        return age
+    except (ValueError, TypeError):
+        raise ValueError(
+            f"El formato de DATE_OF_BIRTH es incorrecto. Se esperaba 'YYYY-MM-DD', pero se recibió '{born_str}'."
+        )
 
 
 def register(app):
@@ -10,7 +27,9 @@ def register(app):
 
     @app.route("/")
     def home():
-        return render_template("home.html.j2")
+        dob_str = current_app.config.get("DATE_OF_BIRTH")
+        age = calculate_age(dob_str)
+        return render_template("home.html.j2", age=age)
 
     @app.route("/projects")
     def projects():
