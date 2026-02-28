@@ -1,9 +1,9 @@
 {% extends "base.html.j2" %}
 {% block head %}
-  <title>{{ _('Blog') }} - {{ post.title }}</title>
+  <title>{{ _('Blog') }} - {{ post.title[g.lang] }}</title>
   <!-- djlint:off T027 -->
-  {% if post.description %}
-    <meta name="description" content="{{ post.description }}">
+  {% if post.description[g.lang] %}
+    <meta name="description" content="{{ post.description[g.lang] }}">
     {% endif %}
   <!-- djlint:on -->
   <link rel="stylesheet" href="{{ url_for('static', filename='css/blog.css') }}">
@@ -45,7 +45,7 @@
             {% endif %}
         </p>
         <div class="post-content">
-            {{ post.body_html | safe }}
+            {{ post.body_html[g.lang] | safe }}
         </div>
 
         <div class="post-meta-bottom">

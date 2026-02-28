@@ -3,7 +3,7 @@ from flask import render_template, send_file, abort, current_app
 from app.logger import log
 
 
-from app.blog import get_all_posts_with_cache
+from app.content import get_discussions_with_cache
 
 
 def calculate_age(born_str):
@@ -33,7 +33,24 @@ def register(app):
 
     @app.route("/projects")
     def projects():
-        return render_template("projects.html.j2")
+        projects_data = get_discussions_with_cache(
+            current_app.config["GITHUB_PROJECTS_CATEGORY"]
+        )
+        return render_template("projects.html.j2", projects=projects_data)
+
+    @app.route("/projects/<slug>")
+    def project_detail(slug):
+        projects_data = get_discussions_with_cache(
+            current_app.config["GITHUB_PROJECTS_CATEGORY"]
+        )
+        project = next((p for p in projects_data if p["slug"] == slug), None)
+        if project is None:
+            abort(404)
+
+        giscus_term = str(project["number"])
+        return render_template(
+            "project_detail.html.j2", project=project, giscus_term=giscus_term
+        )
 
     @app.route("/links")
     def links():
@@ -41,12 +58,12 @@ def register(app):
 
     @app.route("/blog")
     def blog():
-        posts = get_all_posts_with_cache()
+        posts = get_discussions_with_cache(current_app.config["GITHUB_BLOG_CATEGORY"])
         return render_template("blog.html.j2", posts=posts)
 
     @app.route("/blog/<slug>")
     def post_detail(slug):
-        posts = get_all_posts_with_cache()
+        posts = get_discussions_with_cache(current_app.config["GITHUB_BLOG_CATEGORY"])
         post = next((p for p in posts if p["slug"] == slug), None)
         if post is None:
             abort(404)  # O redirigir a una página de error personalizada

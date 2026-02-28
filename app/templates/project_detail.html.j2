@@ -1,0 +1,46 @@
+{% extends "base.html.j2" %}
+{% block head %}
+  <title>{{ _('Projects') }} - {{ project.title[g.lang] }}</title>
+  {% if project.description %}
+    <meta name="description" content="{{ project.description[g.lang] }}">
+  {% endif %}
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/blog.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/projects.css') }}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/github-dark.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', (event) => {
+      document.querySelectorAll('pre code').forEach((block) => {
+        hljs.highlightElement(block);
+      });
+    });
+  </script>
+{% endblock head %}
+
+{% block main %}
+    <article class="blog-post">
+        <h1>{{ project.title[g.lang] }}</h1>
+        <p class="post-meta">
+            {{ project.description[g.lang] }}
+        </p>
+
+        <div style="display: flex; gap: 1rem; margin-top: 1rem; margin-bottom: 2rem;">
+            {% if project.meta.get('live_url') %}
+                <a href="{{ project.meta.get('live_url') }}" target="_blank" class="button-1">{{ _('Visit') }}</a>
+            {% endif %}
+            {% if project.meta.get('code_url') %}
+                <a href="{{ project.meta.get('code_url') }}" target="_blank" class="button-2"><i class="bx bxl-github" style="font-size: 1.5rem; margin-right: 0.5rem;"></i> {{ _('Code') }}</a>
+            {% endif %}
+        </div>
+
+        <div class="post-content">
+            {{ project.body_html[g.lang] | safe }}
+        </div>
+    </article>
+    
+    <hr>
+    
+    <div style="margin-top: 2rem; text-align: center;">
+         <a href="{{ url_for('projects') }}" class="button-2" style="display: inline-flex;">{{ _('Back to Projects') }}</a>
+    </div>
+{% endblock main %}

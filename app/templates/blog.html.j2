@@ -14,7 +14,7 @@
         <ul>
           {% for post in posts %}
             <li>
-              <h3><a href="{{ url_for('post_detail', slug=post.slug) }}">{{ post.title }}</a></h3>
+              <h3><a href="{{ url_for('post_detail', slug=post.slug) }}">{{ post.title[g.lang] }}</a></h3>
               <p class="post-meta">
                 {{ _('Published on:') }} {{ post.published_at.strftime('%d %B, %Y') }}
                 {% if post.tags %}
@@ -27,10 +27,10 @@
                   | {{ _('Series:') }} {{ post.series }}
                 {% endif %}
               </p>
-              {% if post.description %}
-                <p>{{ post.description }}</p>
+              {% if post.description[g.lang] %}
+                <p>{{ post.description[g.lang] }}</p>
               {% else %}
-                <p>{{ post.body_html | striptags | truncate(150) }}</p>
+                <p>{{ post.body_html[g.lang] | striptags | truncate(150) }}</p>
               {% endif %}
               <a href="{{ url_for('post_detail', slug=post.slug) }}" class="read-more">{{ _('Read more...') }}</a>
             </li>
