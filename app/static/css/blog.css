@@ -68,6 +68,8 @@
 /* Individual post page */
 .blog-post {
   width: 100%;
+  max-width: 100%;
+  min-width: 0;
   padding: 0 1rem;
   font-size: 16px;
   line-height: 1.6;
@@ -224,7 +226,8 @@
   background-color: var(--color-bg2);
   padding: 16px;
   border-radius: 6px;
-  overflow: auto;
+  overflow-x: auto;
+  max-width: 100%;
   margin: 16px 0;
   font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
   font-size: 85%;
@@ -239,6 +242,7 @@
   margin: 0;
   font-size: 85%;
   border-radius: 3px;
+  word-break: break-word;
 }
 
 .post-content pre code {
