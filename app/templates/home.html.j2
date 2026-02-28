@@ -34,11 +34,10 @@
   <a class="button-1" href="{{ url_for('static', filename='media/cv-gen-'~_('en')~'-v1.2.0.pdf') }}"
     download>{{ _('CV') }}</a>
 </div>
-<p class="max-width-550px">
-  <img id="activity" style="border: 2px solid var(--color-accent2); border-radius: 6px;"
+<p class="max-width-550px" style="width: 100%; text-align: center;">
+  <img id="activity" style="border: 2px solid var(--color-accent2); border-radius: 6px; max-width: 100%; height: auto;"
     title="{{ _('Activity provided by Discord, via lanyard-profile-readme') }}"
     alt="{{ _('Activity provided by Discord, via lanyard-profile-readme') }}">
-</p>
 </p>
 
 <script>
