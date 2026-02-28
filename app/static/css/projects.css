@@ -68,6 +68,7 @@
   top: 0;
   right: 0;
   margin: 1rem;
+  z-index: 2;
 }
 
 .i-btn {
@@ -77,6 +78,20 @@
 .i-btn i {
   font-size: 1.5rem;
   line-height: normal;
+}
+
+.stretched-link::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+}
+
+.card:hover .overlay::after {
+  background-color: var(--color-no-overlay);
 }
 
 .card:hover {

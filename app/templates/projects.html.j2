@@ -12,17 +12,14 @@
   {% for project in projects %}
   <div class="card">
     <div class="img-container overlay">
-      <a href="{{ url_for('project_detail', slug=project.slug) }}">
-        {# Usamos la imagen extraída o una por defecto #}
-        {% if project.cover_image %}
-          <img src="{{ project.cover_image }}" alt="{{ project.title[g.lang] }}" />
-        {% else %}
-          <!-- Imagen de respaldo por si el proyecto no tiene ninguna imagen -->
-          <div style="width: 100%; height: 100%; background: var(--color-accent1-a); display: flex; align-items: center; justify-content: center;">
-            <i class="bx bx-code-block" style="font-size: 3rem; color: var(--color-accent1);"></i>
-          </div>
-        {% endif %}
-      </a>
+      {# Usamos la imagen extraída o una por defecto #}
+      {% if project.cover_image %}
+        <img src="{{ project.cover_image }}" alt="{{ project.title[g.lang] }}" />
+      {% else %}
+        <div style="width: 100%; height: 100%; background: var(--color-accent1-a); display: flex; align-items: center; justify-content: center;">
+          <i class="bx bx-code-block" style="font-size: 3rem; color: var(--color-accent1);"></i>
+        </div>
+      {% endif %}
     </div>
     <div class="buttons">
       {% if project.meta.get('live_url') %}
@@ -39,7 +36,7 @@
           <i class="devicon-{{ tech }}" title="{{ tech.split('-')[0] | title }}"></i>
         {% endfor %}
       </div>
-      <h3><a href="{{ url_for('project_detail', slug=project.slug) }}" style="color: inherit;">{{ project.title[g.lang] }}</a></h3>
+      <h3><a href="{{ url_for('project_detail', slug=project.slug) }}" class="stretched-link" style="color: inherit;">{{ project.title[g.lang] }}</a></h3>
       <p>{{ project.description[g.lang] }}</p>
     </div>
   </div>
