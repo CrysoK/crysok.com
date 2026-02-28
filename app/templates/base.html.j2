@@ -76,7 +76,7 @@
             {% for page in pages %}
               {% set name = page[0] %}
               {% set url = url_for(page[1]) %}
-              {% if request.path == url %}
+              {% if request.path == url or (url != '/' and request.path.startswith(url)) %}
                 {% set ns.active = {'url': url, 'name': page[0]} %}
                 <a id="active-nav-item" class="nav-item" href="{{ url }}">{{ name }}</a>
               {% else %}
