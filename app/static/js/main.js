@@ -46,7 +46,7 @@ function langSelector() {
   for (let i = 0; i < langs.length; i++) {
     langs[i].onclick = function (e) {
       const lang = e.target.innerText.toLowerCase();
-      document.cookie = "lang=" + lang;
+      document.cookie = "lang=" + lang + "; path=/";
       location.reload();
     };
   }
