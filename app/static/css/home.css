@@ -25,6 +25,12 @@
   border-radius: 50%;
 }
 
+.home-content {
+  text-align: justify;
+  hyphens: auto;
+  word-break: break-word;
+}
+
 .home-buttons {
   width: 100%;
   padding: 0 0.5rem;
