@@ -29,8 +29,8 @@ def register(app):
     def add_cache_headers(response):
         # Cache for 5 minutes in browser and Vercel CDN
         response.headers["Cache-Control"] = "public, max-age=300, s-maxage=300"
-        # Crucial for Babel: Tell CDN to separate cache by language
-        response.headers["Vary"] = "Accept-Language"
+        # Crucial: Tell CDN to separate cache by lang cookie
+        response.headers["Vary"] = "Cookie"
         return response
 
     @app.route("/")
