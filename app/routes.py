@@ -25,6 +25,14 @@ def calculate_age(born_str):
 def register(app):
     log.info("Registering routes")
 
+    @app.after_request
+    def add_cache_headers(response):
+        # Cache for 5 minutes in browser and Vercel CDN
+        response.headers["Cache-Control"] = "public, max-age=300, s-maxage=300"
+        # Crucial for Babel: Tell CDN to separate cache by language
+        response.headers["Vary"] = "Accept-Language"
+        return response
+
     @app.route("/")
     def home():
         dob_str = current_app.config.get("DATE_OF_BIRTH")
