@@ -137,7 +137,11 @@ def parse_discussion_node(discussion_node):
     tabs = int(str(metadata.get("tabs", 2)))
 
     # Prioridad: 1. Frontmatter -> 2. Primera imagen del Markdown -> 3. None
-    cover_image = metadata.get("image") or extract_first_image(content_md)
+    cover_image_raw = metadata.get("image")
+    if cover_image_raw:
+        cover_image = extract_first_image(str(cover_image_raw)) or cover_image_raw
+    else:
+        cover_image = extract_first_image(content_md)
 
     body_md_es, body_md_en = split_bilingual_content(content_md)
 
