@@ -1,5 +1,5 @@
 from datetime import date
-from flask import render_template, send_file, abort, current_app
+from flask import render_template, send_file, abort, current_app, render_template_string
 from app.logger import log
 
 
@@ -37,7 +37,17 @@ def register(app):
     def home():
         dob_str = current_app.config.get("DATE_OF_BIRTH")
         age = calculate_age(dob_str)
-        return render_template("home.html.j2", age=age)
+        
+        pages_data = get_discussions_with_cache(
+            current_app.config["GITHUB_PAGES_CATEGORY"]
+        )
+        page = next((p for p in pages_data if p["slug"] == "home"), None)
+        
+        if page and "body_html" in page:
+            for lang in page["body_html"]:
+                page["body_html"][lang] = render_template_string(page["body_html"][lang], age=age)
+
+        return render_template("home.html.j2", age=age, page=page)
 
     @app.route("/projects")
     def projects():
@@ -62,7 +72,12 @@ def register(app):
 
     @app.route("/links")
     def links():
-        return render_template("links.html.j2")
+        pages_data = get_discussions_with_cache(
+            current_app.config["GITHUB_PAGES_CATEGORY"]
+        )
+        page = next((p for p in pages_data if p["slug"] == "links"), None)
+
+        return render_template("links.html.j2", page=page)
 
     @app.route("/blog")
     def blog():

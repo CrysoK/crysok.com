@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version:  crysok.com\n"
 "Report-Msgid-Bugs-To: ezequintela@gmail.com\n"
-"POT-Creation-Date: 2026-02-27 21:22-0300\n"
+"POT-Creation-Date: 2026-05-08 00:06-0300\n"
 "PO-Revision-Date: 2022-08-18 22:18-0300\n"
 "Last-Translator: Ezequiel Dzioba <ezequintela@gmail.com>\n"
 "Language: es\n"
@@ -34,7 +34,7 @@ msgstr "Atrás"
 msgid "Home"
 msgstr "Inicio"
 
-#: app/templates/base.html.j2:3 app/templates/home.html.j2:34
+#: app/templates/base.html.j2:3
 msgid "en"
 msgstr "es"
 
@@ -47,8 +47,7 @@ msgstr "Sobre mí"
 msgid "Projects"
 msgstr "Proyectos"
 
-#: app/templates/base.html.j2:69 app/templates/links.html.j2:3
-#: app/templates/links.html.j2:10
+#: app/templates/base.html.j2:69 app/templates/links.html.j2:7
 msgid "Links"
 msgstr "Enlaces"
 
@@ -97,85 +96,37 @@ msgstr "Aún no hay publicaciones. ¡Vuelve pronto!"
 msgid "Main website page with information about me"
 msgstr "Página principal del sitio web con información sobre mí"
 
-#: app/templates/home.html.j2:14
-msgid "Systems Analysis Bachelor's student."
-msgstr "Estudiante de Licenciatura en Análisis de Sistemas."
-
-#: app/templates/home.html.j2:15
-msgid "Learning Full-Stack Web Development."
-msgstr "Aprendiendo Desarrollo Web Full-Stack."
-
-#: app/templates/home.html.j2:20
-msgid "Welcome to my space on the web!"
-msgstr "¡Bienvenido a mi espacio en la web!"
-
-#: app/templates/home.html.j2:23
-#, python-format
-msgid ""
-"I'm a %(age)s-year-old student pursuing a Bachelor's Degree in Systems\n"
-"     Analysis. I'm also learning about full stack web development but I'm"
-"\n"
-"     interested in all areas of software."
-msgstr ""
-"Soy un estudiante de %(age)s años cursando una Licenciatura en Análisis "
-"de Sistemas. También estoy aprendiendo sobre desarrollo web full stack "
-"pero me interesan todas las áreas del software."
-
-#: app/templates/home.html.j2:28
-msgid ""
-"Although I'm focused on university, I remain open to part-time\n"
-"      proposals. Let's connect."
-msgstr ""
-"Aunque estoy centrado en la universidad, me mantengo abierto a propuestas"
-" de medio tiempo. Conectemos."
-
-#: app/templates/home.html.j2:33
+#: app/templates/home.html.j2:24
 msgid "Contact me"
 msgstr "Contáctame"
 
-#: app/templates/home.html.j2:35
+#: app/templates/home.html.j2:27
 msgid "CV"
 msgstr "CV"
 
-#: app/templates/home.html.j2:39 app/templates/home.html.j2:40
+#: app/templates/home.html.j2:32 app/templates/links.html.j2:34
+msgid "Content Unavailable"
+msgstr "Contenido no disponible"
+
+#: app/templates/home.html.j2:33 app/templates/links.html.j2:35
+msgid ""
+"The content for this page could not be loaded at this time. Please try "
+"again later."
+msgstr ""
+"El contenido de esta página no pudo ser cargado en este momento. Por "
+"favor, intenta de nuevo más tarde."
+
+#: app/templates/home.html.j2:38 app/templates/home.html.j2:39
 msgid "Activity provided by Discord, via lanyard-profile-readme"
 msgstr "Actividad proporcionada por Discord, via lanyard-profile-readme"
 
-#: app/templates/home.html.j2:51
+#: app/templates/home.html.j2:49
 msgid "No activity for now..."
 msgstr "Sin actividad por ahora..."
 
-#: app/templates/links.html.j2:5
+#: app/templates/links.html.j2:9
 msgid "Ways to contact me, social networks and other things"
 msgstr "Formas de contactas conmigo, redes sociales y otras cosas"
-
-#: app/templates/links.html.j2:11
-msgid "Where to find me online."
-msgstr "Dónde puedes encontrarme en línea."
-
-#: app/templates/links.html.j2:13
-msgid "Contact"
-msgstr "Contacto"
-
-#: app/templates/links.html.j2:18
-msgid "Email"
-msgstr "Correo"
-
-#: app/templates/links.html.j2:29
-msgid "Work"
-msgstr "Trabajo"
-
-#: app/templates/links.html.j2:42
-msgid "Social networks"
-msgstr "Redes sociales"
-
-#: app/templates/links.html.j2:55
-msgid "Music"
-msgstr "Música"
-
-#: app/templates/links.html.j2:68
-msgid "Other content"
-msgstr "Otros contenidos"
 
 #: app/templates/post.html.j2:30
 msgid "Note"
@@ -213,15 +164,19 @@ msgstr "Por favor, habilita JavaScript para ver los"
 msgid "comments powered by Giscus."
 msgstr "comentarios proporcionados por Giscus."
 
-#: app/templates/project_detail.html.j2:29 app/templates/projects.html.j2:29
+#: app/templates/project_detail.html.j2:25
+msgid "Last updated:"
+msgstr "Actualizado:"
+
+#: app/templates/project_detail.html.j2:30 app/templates/projects.html.j2:26
 msgid "Visit"
 msgstr "Visitar"
 
-#: app/templates/project_detail.html.j2:32 app/templates/projects.html.j2:32
+#: app/templates/project_detail.html.j2:33 app/templates/projects.html.j2:29
 msgid "Code"
 msgstr "Código"
 
-#: app/templates/project_detail.html.j2:44
+#: app/templates/project_detail.html.j2:45
 msgid "Back to Projects"
 msgstr "Volver a Proyectos"
 
@@ -233,7 +188,7 @@ msgstr "Proyectos que hice o que estoy haciendo"
 msgid "Some of my projects."
 msgstr "Algunos de mis proyectos."
 
-#: app/templates/projects.html.j2:47
+#: app/templates/projects.html.j2:44
 msgid "No projects yet."
 msgstr "Sin proyectos por ahora."
 
