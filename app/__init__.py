@@ -1,5 +1,5 @@
 from flask import Flask, request, current_app, after_this_request, g
-from flask_babel import Babel, gettext as _, lazy_gettext as _l  # noqa
+from flask_babel import Babel, gettext as _, lazy_gettext as _l, format_date  # noqa
 from app.config import Config
 from app import routes
 from app.logger import log
@@ -23,6 +23,8 @@ def create_app(config=Config):
 
     log.info("Registering Babel")
     babel.init_app(app, locale_selector=get_locale)
+
+    app.jinja_env.globals['format_date'] = format_date
 
     return app
 

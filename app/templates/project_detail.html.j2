@@ -21,7 +21,8 @@
     <article class="blog-post">
         <h1>{{ project.title[g.lang] }}</h1>
         <p class="post-meta">
-            {{ project.description[g.lang] }}
+            {{ project.description[g.lang] }}<br>
+            <span style="font-size: 0.9em; opacity: 0.8;">{{ _('Last updated:') }} {{ format_date(project.updated_at, "d MMMM, yyyy") }}</span>
         </p>
 
         <div style="display: flex; gap: 1rem; margin-top: 1rem; margin-bottom: 2rem;">

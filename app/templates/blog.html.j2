@@ -16,7 +16,7 @@
             <li>
               <h3><a href="{{ url_for('post_detail', slug=post.slug) }}">{{ post.title[g.lang] }}</a></h3>
               <p class="post-meta">
-                {{ _('Published on:') }} {{ post.published_at.strftime('%d %B, %Y') }}
+                {{ _('Published on:') }} {{ format_date(post.published_at, "d MMMM, yyyy") }}
                 {% if post.tags %}
                 | {{ _('Tags:') }}
                   {% for tag in post.tags %}

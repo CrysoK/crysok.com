@@ -39,9 +39,9 @@
 {% block main %}
     <article class="blog-post">
         <p class="post-meta">
-            {{ _('Published on:') }} {{ post.published_at.strftime('%d %B, %Y') }}
+            {{ _('Published on:') }} {{ format_date(post.published_at, "d MMMM, yyyy") }}
             {% if post.updated_at and post.updated_at.date() != post.published_at.date() %}
-                ({{ _('Updated:') }} {{ post.updated_at.strftime('%d %B, %Y') }})
+                ({{ _('Updated:') }} {{ format_date(post.updated_at, "d MMMM, yyyy") }})
             {% endif %}
         </p>
         <div class="post-content">
