@@ -18,7 +18,7 @@
   </div>
 </div>
 <div class="home-content max-width-550px">
-  {{ page.body_html[g.lang] | safe }}
+  {{ rendered_body[g.lang] | safe }}
 </div>
 <div class="home-buttons max-width-550px">
   <a class="button-1" href="{{ url_for('links') }}">{{ _('Contact me') }}</a>

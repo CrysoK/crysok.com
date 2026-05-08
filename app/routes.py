@@ -43,11 +43,12 @@ def register(app):
         )
         page = next((p for p in pages_data if p["slug"] == "home"), None)
         
+        rendered_body = {}
         if page and "body_html" in page:
-            for lang in page["body_html"]:
-                page["body_html"][lang] = render_template_string(page["body_html"][lang], age=age)
+            for lang, html_content in page["body_html"].items():
+                rendered_body[lang] = render_template_string(html_content, age=age)
 
-        return render_template("home.html.j2", age=age, page=page)
+        return render_template("home.html.j2", age=age, page=page, rendered_body=rendered_body)
 
     @app.route("/projects")
     def projects():
