@@ -1,37 +1,40 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
-  "headers": [
+  "builds": [
     {
-      "source": "/static/(.*)",
-      "headers": [
-        {
-          "key": "Cache-Control",
-          "value": "public, max-age=86400, s-maxage=604800, stale-while-revalidate=86400"
-        }
-      ]
+      "src": "public/**",
+      "use": "@vercel/static"
     },
     {
-      "source": "/favicon.ico",
-      "headers": [
-        {
-          "key": "Cache-Control",
-          "value": "public, max-age=86400, s-maxage=604800"
-        }
-      ]
-    },
-    {
-      "source": "/sitemap.xml",
-      "headers": [
-        {
-          "key": "Cache-Control",
-          "value": "public, max-age=3600, s-maxage=86400"
-        }
-      ]
+      "src": "main.py",
+      "use": "@vercel/python"
     }
   ],
-  "functions": {
-    "main.py": {
-      "excludeFiles": "public/**"
+  "routes": [
+    {
+      "src": "/static/(.*)",
+      "headers": {
+        "Cache-Control": "public, max-age=86400, s-maxage=604800, stale-while-revalidate=86400"
+      },
+      "dest": "/public/static/$1"
+    },
+    {
+      "src": "/favicon.ico",
+      "headers": {
+        "Cache-Control": "public, max-age=86400, s-maxage=604800"
+      },
+      "dest": "/public/favicon.ico"
+    },
+    {
+      "src": "/sitemap.xml",
+      "headers": {
+        "Cache-Control": "public, max-age=3600, s-maxage=86400"
+      },
+      "dest": "/public/sitemap.xml"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "main.py"
     }
-  }
+  ]
 }
