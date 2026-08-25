@@ -34,35 +34,56 @@
 </div>
 {% endif %}
 <p class="max-width-550px" style="width: 100%; text-align: center;">
-  <img id="activity" style="border: 2px solid var(--color-accent2); border-radius: 6px; max-width: 100%; height: auto;"
+  <img id="activity"
+    data-idle-message="{{ _('No activity for now...') }}"
+    style="border: 2px solid var(--color-accent2); border-radius: 6px; max-width: 100%; height: auto;"
     title="{{ _('Activity provided by Discord, via lanyard-profile-readme') }}"
     alt="{{ _('Activity provided by Discord, via lanyard-profile-readme') }}">
 </p>
 
 <script>
-  function activity() {
-    let api = "https://lanyard.cnrad.dev/api/"
-    let id = "469204451777839155"
-    let theme = "dark"
-    let bg = getComputedStyle(document.documentElement).getPropertyValue('--color-bg1')
-    let borderRadius = "0"
-    let idleMessage = "{{ _('No activity for now...') }}"
-    let showDisplayName = "true"
-    let hideProfile = "true"
+  (function () {
+    const img = document.querySelector("#activity");
+    if (!img) return;
 
-    let params = new URLSearchParams({
-      theme,
-      bg,
-      borderRadius,
-      idleMessage,
-      showDisplayName,
-      // hideProfile,
-      "t": new Date().getTime()
-    }).toString()
+    const idleMessage = img.dataset.idleMessage;
+    let timer = null;
 
-    document.querySelector('#activity').src = `${api}${id}?${params}`
-  }
-  activity()
-  setInterval(activity, 10000) // 10 seconds
+    function activity() {
+      const api = "https://lanyard.cnrad.dev/api/";
+      const id = "469204451777839155";
+      const bg = getComputedStyle(document.documentElement).getPropertyValue("--color-bg1");
+      const params = new URLSearchParams({
+        theme: "dark",
+        bg,
+        borderRadius: "0",
+        idleMessage,
+        showDisplayName: "true",
+        t: Date.now().toString(),
+      });
+      img.src = `${api}${id}?${params}`;
+    }
+
+    function start() {
+      activity();
+      if (timer == null) {
+        timer = setInterval(activity, 10000);
+      }
+    }
+
+    function stop() {
+      if (timer != null) {
+        clearInterval(timer);
+        timer = null;
+      }
+    }
+
+    document.addEventListener("visibilitychange", function () {
+      if (document.hidden) stop();
+      else start();
+    });
+
+    if (!document.hidden) start();
+  })();
 </script>
 {% endblock main %}

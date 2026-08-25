@@ -1,4 +1,4 @@
-from flask import Flask, request, current_app, after_this_request, g
+from flask import Flask, request, current_app, g
 from flask_babel import Babel, gettext as _, lazy_gettext as _l, format_date  # noqa
 from app.config import Config
 from app import routes
@@ -14,6 +14,7 @@ def create_app(config=Config):
     app = Flask(
         __name__,
         static_folder=config.STATIC_FOLDER,
+        static_url_path="/static",
         template_folder=config.TEMPLATES_FOLDER,
     )
     app.config.from_object(config)
@@ -37,12 +38,8 @@ def get_locale():
         lang = request.accept_languages.best_match(langs)
         if lang is None:
             lang = current_app.config["BABEL_DEFAULT_LOCALE"]
-
-        @after_this_request
-        def set_locale(response):
-            log.debug("Setting locale")
-            response.set_cookie("lang", lang)
-            return response
+        # Do not Set-Cookie here: it forces CDN BYPASS. The language switcher
+        # writes the cookie from the client when the user picks a language.
 
     g.lang = lang
     return lang

@@ -1,10 +1,22 @@
 import re
+import threading
 import requests
 import frontmatter
 from markdown import markdown
 from datetime import datetime
 from app.config import Config
+from app.logger import log
 from pymdownx.emoji import to_alt
+
+GITHUB_TIMEOUT_SECONDS = (3, 8)
+_SPLIT_TAG_RE = re.compile(
+    r"^<!--\s*(ES|EN)\s*-->\s*$",
+    re.IGNORECASE | re.MULTILINE,
+)
+
+
+class GitHubFetchError(Exception):
+    """Raised when the GitHub GraphQL API cannot be reached or returns errors."""
 
 
 SEARCH_DISCUSSIONS_QUERY = """
@@ -79,31 +91,24 @@ def extract_first_image(markdown_text):
 
 def split_bilingual_content(markdown_text):
     """Separa el contenido en inglés y español. Si no hay etiquetas, devuelve lo mismo para ambos."""
-    # Buscar si existe la etiqueta de separación
-    first_tag_match = re.search(r"<!--\s*(ES|EN)\s*-->", markdown_text, re.IGNORECASE)
-
-    # Si no hay etiquetas, asumimos que el texto es válido para ambos idiomas (retrocompatibilidad)
+    first_tag_match = _SPLIT_TAG_RE.search(markdown_text)
     if not first_tag_match:
         return markdown_text, markdown_text
 
-    # Extraer todo lo que esté ANTES de la primera etiqueta (ej. una imagen de portada compartida)
     common_header = markdown_text[: first_tag_match.start()].strip()
+    parts = {"es": [], "en": []}
+    current = None
+    for line in markdown_text[first_tag_match.start() :].splitlines(keepends=True):
+        tag_match = _SPLIT_TAG_RE.match(line.rstrip("\r\n"))
+        if tag_match:
+            current = tag_match.group(1).lower()
+            continue
+        if current:
+            parts[current].append(line)
 
-    es_match = re.search(
-        r"<!--\s*ES\s*-->(.*?)(?=<!--\s*EN\s*-->|$)",
-        markdown_text,
-        re.DOTALL | re.IGNORECASE,
-    )
-    en_match = re.search(
-        r"<!--\s*EN\s*-->(.*?)(?=<!--\s*ES\s*-->|$)",
-        markdown_text,
-        re.DOTALL | re.IGNORECASE,
-    )
+    content_es = "".join(parts["es"]).strip()
+    content_en = "".join(parts["en"]).strip()
 
-    content_es = es_match.group(1).strip() if es_match else ""
-    content_en = en_match.group(1).strip() if en_match else ""
-
-    # Unir el encabezado común (imagen) con el contenido específico de cada idioma
     if common_header:
         content_es = f"{common_header}\n\n{content_es}"
         content_en = f"{common_header}\n\n{content_en}"
@@ -234,12 +239,16 @@ def _fetch_discussions_page(category_name, limit=50, after=None):
     query_string = f'repo:{Config.GITHUB_REPO_OWNER}/{Config.GITHUB_REPO_NAME} category:"{category_name}" -label:state/draft'
 
     variables = {"query": query_string, "limit": limit, "after": after}
-    response = requests.post(
-        Config.GITHUB_API_URL,
-        json={"query": SEARCH_DISCUSSIONS_QUERY, "variables": variables},
-        headers=headers,
-    )
-    response.raise_for_status()  # Lanza una excepción para errores HTTP
+    try:
+        response = requests.post(
+            Config.GITHUB_API_URL,
+            json={"query": SEARCH_DISCUSSIONS_QUERY, "variables": variables},
+            headers=headers,
+            timeout=GITHUB_TIMEOUT_SECONDS,
+        )
+        response.raise_for_status()
+    except requests.exceptions.RequestException as e:
+        raise GitHubFetchError(str(e)) from e
     return response.json()
 
 
@@ -250,19 +259,12 @@ def get_all_discussions_recursive(category_name, limit_per_page=100):
     has_next_page = True
 
     while has_next_page:
-        try:
-            data = _fetch_discussions_page(
-                category_name, limit=limit_per_page, after=after_cursor
-            )
-        except requests.exceptions.RequestException as e:
-            print(f"Error fetching discussions: {e}")
-            # Podrías querer manejar esto de forma más elegante, ej., retornar posts cacheados si los hay
-            return []  # O lanzar la excepción para que la app la maneje
+        data = _fetch_discussions_page(
+            category_name, limit=limit_per_page, after=after_cursor
+        )
 
         if "errors" in data:
-            print(f"GraphQL Errors: {data['errors']}")
-            # Manejar errores de GraphQL
-            return []
+            raise GitHubFetchError(str(data["errors"]))
 
         search_results = data.get("data", {}).get("search", {})
         if not search_results or not search_results.get("edges"):
@@ -290,22 +292,37 @@ def get_all_discussions_recursive(category_name, limit_per_page=100):
     return all_items_data
 
 
-# Sistema de caché para múltiples categorías
+# Caché de proceso: útil en instancias calientes (Fluid). No sustituye al CDN.
 _caches = {}
+_cache_lock = threading.Lock()
 CACHE_DURATION_SECONDS = 300  # 5 minutos
 
 
 def get_discussions_with_cache(category_name):
-    global _caches
+    if not category_name:
+        log.warning("GitHub category is not configured; returning no items.")
+        return []
     now = datetime.now()
+    cached = _caches.get(category_name)
+    if cached and (now - cached[1]).total_seconds() < CACHE_DURATION_SECONDS:
+        log.debug("Returning %s from process cache.", category_name)
+        return cached[0]
 
-    if category_name in _caches:
-        cached_data, timestamp = _caches[category_name]
-        if (now - timestamp).total_seconds() < CACHE_DURATION_SECONDS:
-            print(f"Returning {category_name} from cache.")
-            return cached_data
+    with _cache_lock:
+        cached = _caches.get(category_name)
+        now = datetime.now()
+        if cached and (now - cached[1]).total_seconds() < CACHE_DURATION_SECONDS:
+            log.debug("Returning %s from process cache.", category_name)
+            return cached[0]
 
-    print(f"Fetching {category_name} from GitHub API.")
-    discussions = get_all_discussions_recursive(category_name)
-    _caches[category_name] = (discussions, now)
-    return discussions
+        log.info("Fetching %s from GitHub API.", category_name)
+        try:
+            discussions = get_all_discussions_recursive(category_name)
+        except GitHubFetchError as e:
+            log.warning("GitHub fetch failed for %s: %s", category_name, e)
+            if cached:
+                return cached[0]
+            return []
+
+        _caches[category_name] = (discussions, datetime.now())
+        return discussions

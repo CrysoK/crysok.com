@@ -1,11 +1,14 @@
 import os
 from app.logger import log
 
+_ROOT_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
+
 
 class Config:
     # Flask
     TEMPLATES_FOLDER = "templates"
-    STATIC_FOLDER = "static"
+    PUBLIC_FOLDER = os.path.join(_ROOT_DIR, "public")
+    STATIC_FOLDER = os.path.join(PUBLIC_FOLDER, "static")
     SECRET_KEY = os.environ.get("FLASK_SECRET", "flask-secret-key")
     LANGUAGES = ["en", "es"]
     # Flask-Babel
